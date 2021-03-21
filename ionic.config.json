@@ -1,0 +1,7 @@
+{
+  "name": "adote-pets",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
