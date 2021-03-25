@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
 .login__content {
     width: 100%;
     max-width: 480px;
@@ -42,4 +42,11 @@
 .button {
     margin-top: 50px;
     height: 68px;
+}
+
+.title {
+    font-family: "Open Sans";
+    font-size: 36px;
+    font-weight: 600;
+    padding-bottom: 20px;
 }
