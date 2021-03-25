@@ -1,15 +1,14 @@
 import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel } from "@ionic/react";
-import { Link } from "react-router-dom";
 
-import "./Login.css";
+import "./Register.css";
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
         <div className="container">
-          <div className="login__content">
-            <h1>Login</h1>
+          <div className="register__content">
+            <h1>Registrar</h1>
             <IonItem>
               <IonLabel position="floating">Email</IonLabel>
               <IonInput></IonInput>
@@ -18,11 +17,7 @@ const Login: React.FC = () => {
               <IonLabel position="floating">Senha</IonLabel>
               <IonInput></IonInput>
             </IonItem>
-            <p>Esqueci a senha</p>
-            <IonButton expand="block">Entrar</IonButton>
-            <p>
-              Não possui conta? <Link to="/register">Cadastre-se</Link> agora!
-            </p>
+            <IonButton expand="block">Cadastrar</IonButton>
           </div>
         </div>
       </IonContent>
@@ -30,4 +25,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;

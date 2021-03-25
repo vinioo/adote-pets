@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <div className="home__container">
+        <div className="container">
           <div className="home__content">
             <img src={HomeDogsImage} alt="" />
             <div>

@@ -1,20 +1,18 @@
-.home__container {
-    padding: 2rem;
+.home__content {
     display: flex;
-    align-items: center;
-    height: 100%;
+    flex-direction: column;
 }
 
 .home__content h1 {
-    color: #333333;
-    font-size: 32px;
-    font-weight: 700;
-    margin-top: 32px;
+  color: #333333;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 32px;
 }
 
 .home__content p {
-    color: #777777;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 56px;
+  color: #777777;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 56px;
 }
