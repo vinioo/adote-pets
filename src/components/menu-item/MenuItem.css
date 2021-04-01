@@ -1,0 +1,18 @@
+.menu-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item > div {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background: #f0f3f3;
+}
+
+.menu-item > span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333333;
+  margin-top: 8px;
+}

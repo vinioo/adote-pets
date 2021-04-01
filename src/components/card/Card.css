@@ -1,0 +1,13 @@
+.card {
+  width: 156px;
+  height: 190px;
+  background-color: red;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+}
