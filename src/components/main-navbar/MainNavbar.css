@@ -2,3 +2,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.user-image {
+  background: url("../../assets/images/user.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}

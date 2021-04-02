@@ -1,13 +1,30 @@
 .card {
-  width: 156px;
+  width: 100%;
+  min-width: 120px;
+  max-width: 160px;
   height: 190px;
-  background-color: red;
   border-radius: 20px;
   box-sizing: border-box;
   padding: 16px;
+  position: relative;
 }
 
 .card__info {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  bottom: 16px;
+}
+
+.card__info span, .card__info small {
+  font-size: 12px;
+  color: #FAFAFA;
+}
+
+.card__info span {
+  font-weight: 700;
+}
+
+.card__info small {
+  font-weight: 400;
 }

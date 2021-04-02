@@ -1,0 +1,9 @@
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px 16px;
+}
+
+.card-container div:nth-child(even) {
+    transform: translateY(48px);
+}

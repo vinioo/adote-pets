@@ -8,11 +8,24 @@
   height: 60px;
   border-radius: 15px;
   background: #f0f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-item > span {
   font-size: 12px;
   font-weight: 600;
   color: #333333;
-  margin-top: 8px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.menu-item--active > div {
+  background: #1bbcb6;
+  box-shadow: 2px 4px 10px #c5c5c5;
+}
+
+.menu-item--active > div img {
+  filter: brightness(2);
 }

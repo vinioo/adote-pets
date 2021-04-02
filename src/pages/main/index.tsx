@@ -1,6 +1,6 @@
 import { IonContent, IonPage } from "@ionic/react";
 
-import Card from "../../components/card";
+import CardContainer from "../../components/card-container";
 import MainNavbar from "../../components/main-navbar";
 import Menu from "../../components/menu";
 import SetLocation from "../../components/set-location";
@@ -15,8 +15,7 @@ const Main: React.FC = () => {
           <MainNavbar></MainNavbar>
           <SetLocation></SetLocation>
           <Menu></Menu>
-          <Card></Card>
-          <Card></Card>
+          <CardContainer></CardContainer>
         </div>
       </IonContent>
     </IonPage>
