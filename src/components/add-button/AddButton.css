@@ -4,4 +4,11 @@
   background: #1bbcb6;
   box-shadow: 0px 4px 16px #555555;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 32px;
+  right: 24px;
+  opacity: 0.95;
 }

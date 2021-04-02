@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 24px 16px;
+    justify-items: center;
 }
 
 .card-container div:nth-child(even) {
