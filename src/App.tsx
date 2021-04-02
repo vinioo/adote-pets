@@ -28,6 +28,7 @@ import './theme/variables.css';
 
 /* Customized css */
 import './theme/custom.css';
+import PetInfo from './pages/pet-info';
 
 const App: React.FC = () => (
   <IonApp>
@@ -47,6 +48,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/main">
           <Main />
+        </Route>
+        <Route exact path="/info">
+          <PetInfo />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />

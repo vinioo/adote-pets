@@ -17,7 +17,7 @@ const Main: React.FC = () => {
           <SetLocation></SetLocation>
           <Menu></Menu>
           <CardContainer></CardContainer>
-          <AddButton></AddButton>
+          <AddButton redirectState="/info"></AddButton>
         </div>
       </IonContent>
     </IonPage>

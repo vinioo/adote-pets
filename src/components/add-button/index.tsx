@@ -1,14 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import AddIcon from "../../assets/icons/add.svg";
 
 import "./AddButton.css";
 
-const AddButton: React.FC = () => {
+interface IAddButtonProps {
+  redirectState: string;
+}
+
+const AddButton: React.FC<IAddButtonProps> = ({ redirectState }) => {
   return (
-    <div className="add-button">
-      <img src={AddIcon} alt="add item icon"></img>
-    </div>
+    <Link to={redirectState}>
+      <div className="add-button">
+        <img src={AddIcon} alt="add item icon"></img>
+      </div>
+    </Link>
   );
 };
 

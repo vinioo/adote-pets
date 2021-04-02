@@ -1,0 +1,21 @@
+.info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+}
+
+.info__image {
+  background: linear-gradient(134.57deg, rgba(255, 255, 255, 0.5) -3.6%, rgba(255, 255, 255, 0) 93.12%),
+    url("https://i.ytimg.com/vi/7xh1DAKIdng/maxresdefault.jpg");
+  background-size: cover;
+  background-position: center;
+  flex: 1.8;
+  border-radius: 0px 0px 30px 30px;
+  filter: drop-shadow(0px 4px 15px #a2a2a2);
+}
+
+.info__content {
+  flex: 2;
+  padding: 32px;
+}
