@@ -17,5 +17,25 @@
 
 .info__content {
   flex: 2;
-  padding: 2rem;
+  padding: 4.0rem;
+}
+
+.info__content__pet {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+.info__content__pet--left p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.info__content__pet--right {
+  display: grid;
+}
+
+.info__content__user__description {
+  display: flex;
 }
