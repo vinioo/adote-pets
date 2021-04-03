@@ -22,7 +22,7 @@ const Register: React.FC = () => {
             <div className="image_upload">
               <IonIcon icon={add} className="icon"></IonIcon>
             </div>
-            <p className="image_upload_subtitle">adicionar uma imagem</p>
+            <small className="image_upload_subtitle">adicionar uma imagem</small>
           </div>
           <IonItem>
             <IonLabel position="floating">Tipo de animal</IonLabel>

@@ -1,16 +1,10 @@
 .set-location {
   display: flex;
-  margin-top: 40px;
-  color: #333333;
-}
-
-.set-location div > span {
-  font-size: 12px;
+  margin-top: 4.0rem;
 }
 
 .set-location div > h3 {
   margin: 0;
-  font-size: 18px;
 }
 
 .set-location div > h3 span {

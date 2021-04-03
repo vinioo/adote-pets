@@ -5,7 +5,7 @@
 }
 
 .container_main {
-    padding: 10%;
+    padding: 2rem;
 }
 
 .image_upload {
@@ -35,11 +35,10 @@
 }
 
 .image_upload_content .image_upload_subtitle {
-    font-size: 10px;
     font-family: "Open Sans";
 }
 
 .button {
-    margin-top: 50px;
+    margin-top: 5.0rem;
     height: 68px;
 }
