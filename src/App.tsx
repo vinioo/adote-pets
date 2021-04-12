@@ -6,6 +6,7 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Main from './pages/main';
 import RegisterUser from './pages/registerUser';
+import PetsList from './pages/petsList';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -51,6 +52,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/info">
           <PetInfo />
+        </Route>
+        <Route exact path="/petsList">
+          <PetsList />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
