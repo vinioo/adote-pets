@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import "./Card.css";
 
@@ -30,7 +31,9 @@ const Card: React.FC<ICardProps> = ({ source }) => {
   return (
     <div className="card" ref={cardRef}>
       <div className="card__info">
-        <span>Doguinho</span>
+        <Link to="/info">
+          <span>Doguinho</span>
+        </Link>
         <small>3 anos</small>
       </div>
     </div>
