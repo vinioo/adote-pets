@@ -10,16 +10,20 @@ const Login: React.FC = () => {
         <div className="container">
           <div className="login__content">
             <h1>Login</h1>
-            <IonItem>
-              <IonLabel position="floating">Email</IonLabel>
-              <IonInput></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="floating">Senha</IonLabel>
-              <IonInput></IonInput>
-            </IonItem>
-            <p>Esqueci a senha</p>
-            <IonButton expand="block" size="large" routerLink="/main">Entrar</IonButton>
+            <div>
+              <IonItem>
+                <IonLabel position="floating">Email</IonLabel>
+                <IonInput></IonInput>
+              </IonItem>
+              <IonItem>
+                <IonLabel position="floating">Senha</IonLabel>
+                <IonInput></IonInput>
+              </IonItem>
+              <small>Esqueci a senha</small>
+            <IonButton expand="block" size="large" routerLink="/main">
+              Entrar
+            </IonButton>
+            </div>
             <p>
               Não possui conta? <Link to="/registerUser">Cadastre-se</Link> agora!
             </p>
