@@ -15,7 +15,7 @@ const Card: React.FC<ICardProps> = ({ source }) => {
       const {
         data: { message: dogImage },
       } = await axios.get("https://dog.ceo/api/breeds/image/random");
-
+      
       if (cardRef.current != null) {
         const gradient = "linear-gradient(186.55deg, rgba(232, 232, 232, 0) 5.15%, #333333 119.04%)";
         cardRef.current.style.background = `${gradient}, url(${dogImage}) no-repeat`;

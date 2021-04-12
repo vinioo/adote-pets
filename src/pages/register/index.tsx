@@ -36,7 +36,7 @@ const Register: React.FC = () => {
             <IonLabel position="floating">Idade</IonLabel>
             <IonInput></IonInput>
           </IonItem>
-          <IonButton expand="block" className="button">
+          <IonButton expand="block" className="button" size="large">
             Colocar para adoção
           </IonButton>
         </div>

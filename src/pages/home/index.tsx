@@ -15,7 +15,7 @@ const Home: React.FC = () => {
               <h1>O seu novo melhor amigo está aqui</h1>
               <p>Vários animais estão procurando um lar. Adote um animal de estimação agora mesmo!</p>
             </div>
-            <IonButton expand="block" routerLink="/login">Começar</IonButton>
+            <IonButton expand="block" routerLink="/login" size="large">Começar</IonButton>
           </div>
         </div>
       </IonContent>
