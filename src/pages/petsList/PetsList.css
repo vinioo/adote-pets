@@ -1,0 +1,14 @@
+.title {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+.container_main {
+    padding: 2.4rem;
+}
+
+.button {
+    height: 56px;
+}
