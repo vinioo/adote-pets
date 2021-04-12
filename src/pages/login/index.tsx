@@ -19,7 +19,7 @@ const Login: React.FC = () => {
               <IonInput></IonInput>
             </IonItem>
             <p>Esqueci a senha</p>
-            <IonButton expand="block">Entrar</IonButton>
+            <IonButton expand="block" routerLink="/main">Entrar</IonButton>
             <p>
               Não possui conta? <Link to="/register">Cadastre-se</Link> agora!
             </p>
