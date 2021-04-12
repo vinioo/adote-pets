@@ -34,7 +34,7 @@ const RegisterUser: React.FC = () => {
             <IonLabel position="floating">Número de telefone</IonLabel>
             <IonInput></IonInput>
           </IonItem>
-          <IonButton expand="block" className="button" size="large">
+          <IonButton expand="block" className="button" size="large" routerLink="/main">
             Cadastrar
           </IonButton>
         </div>

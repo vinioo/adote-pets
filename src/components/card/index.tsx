@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import "./Card.css";
 
@@ -15,7 +16,7 @@ const Card: React.FC<ICardProps> = ({ source }) => {
       const {
         data: { message: dogImage },
       } = await axios.get("https://dog.ceo/api/breeds/image/random");
-      
+
       if (cardRef.current != null) {
         const gradient = "linear-gradient(186.55deg, rgba(232, 232, 232, 0) 5.15%, #333333 119.04%)";
         cardRef.current.style.background = `${gradient}, url(${dogImage}) no-repeat`;
@@ -30,7 +31,9 @@ const Card: React.FC<ICardProps> = ({ source }) => {
   return (
     <div className="card" ref={cardRef}>
       <div className="card__info">
-        <span>Doguinho</span>
+        <Link to="/info">
+          <span>Doguinho</span>
+        </Link>
         <small>3 anos</small>
       </div>
     </div>
