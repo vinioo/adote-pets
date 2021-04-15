@@ -24,9 +24,9 @@ const Login: React.FC = () => {
               Entrar
             </IonButton>
             </div>
-            <p>
+            <small>
               Não possui conta? <Link to="/registerUser">Cadastre-se</Link> agora!
-            </p>
+            </small>
           </div>
         </div>
       </IonContent>

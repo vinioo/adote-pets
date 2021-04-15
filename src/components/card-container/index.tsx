@@ -8,7 +8,7 @@ interface ICardContainerProps {}
 const CardContainer: React.FC<ICardContainerProps> = () => {
   return (
     <div className="card-container">
-      <Card></Card>
+      <Card nome="dkasjsadosdaio"></Card>
       <Card></Card>
       <Card></Card>
       <Card></Card>

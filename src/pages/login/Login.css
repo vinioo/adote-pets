@@ -5,8 +5,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+}
+
+.login__content h1 {
+    position: absolute;
+    top: 3.2rem;
+    font-weight: bold;
 }
 
 .login__content ion-item {
+    margin-bottom: 1.6rem;
+}
+
+.login__content small {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login__content ion-button {
     margin-bottom: 1.6rem;
 }

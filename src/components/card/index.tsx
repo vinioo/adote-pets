@@ -6,9 +6,10 @@ import "./Card.css";
 
 interface ICardProps {
   source?: string;
+  nome?: string;
 }
 
-const Card: React.FC<ICardProps> = ({ source }) => {
+const Card: React.FC<ICardProps> = ({ nome }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Card: React.FC<ICardProps> = ({ source }) => {
     <div className="card" ref={cardRef}>
       <div className="card__info">
         <Link to="/info">
-          <span>Doguinho</span>
+          <span>{nome}</span>
         </Link>
         <small>3 anos</small>
       </div>
