@@ -13,22 +13,20 @@ import { add, arrowBackOutline } from "ionicons/icons";
 import { Formik, Form } from "formik";
 
 import "./Register.css";
-import { createRef } from "react";
-
-interface MyFormValues {
-  tipoAnimal: string;
-  nome: string;
-  idade: number;
-  imagem: string;
-}
+import { Pet} from "../../models/pet.model"
+import {PetService} from "../../service/pet.service"
+ 
+var service = new PetService();
 
 const Register: React.FC = () => {
-  const initialValues: MyFormValues = {
+  const initialValues: Pet = {
+    id: 0,
     tipoAnimal: "",
     nome: "",
     idade: 0,
     imagem: "",
   };
+
   var style_Image_upload = {};
   var style_Icon_upload = {};
 
@@ -43,8 +41,11 @@ const Register: React.FC = () => {
           <Formik
             initialValues={initialValues}
             onSubmit={(values, action) => {
-              alert(JSON.stringify(values, null, 2));
+              service.addPet(values);
               action.setSubmitting(false);
+              alert(JSON.stringify(service.getPetById(1)))
+
+              console.log(service.getPetById(1))
             }}
           >
             {(formikProps) => (

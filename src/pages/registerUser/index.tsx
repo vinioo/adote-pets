@@ -12,18 +12,18 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 
 import "./RegisterUser.css";
+import { UserService } from "../../service/user.service"
+import { User } from "../../models/user.model"
 
-interface MyFormValues {
-  email: string;
-  password: string;
-  telefone: string;
-}
+var MyFormValues = new UserService();
 
 const RegisterUser: React.FC = () => {
-  const initialValues: MyFormValues = {
+  const initialValues: User = {
+    id:0,
     email: "",
     password: "",
     telefone: "",
+    imagem:""
   };
   var style_Image_upload = {};
   var style_Icon_upload = {};
@@ -40,8 +40,11 @@ const RegisterUser: React.FC = () => {
           <Formik
             initialValues={initialValues}
             onSubmit={(values, action) => {
-              alert(JSON.stringify(values, null, 2));
+              MyFormValues.addUser(values);
               action.setSubmitting(false);
+              alert(JSON.stringify(MyFormValues.getUserById(1)))
+
+              console.log(MyFormValues.getUserById(1))
             }}
           >
             {(formikProps) => (

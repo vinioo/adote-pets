@@ -2,17 +2,16 @@ import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel } from "@io
 import { Link } from "react-router-dom";
 
 import { Formik, Form } from "formik";
+import { UserService } from "../../service/user.service"
+import { User } from "../../models/user.model"
+import "./Login.css";  
 
-import "./Login.css";
-
-interface MyFormValues {
-  email: string;
-  password: string;
-}
+var service = new UserService();
+ var router :Link
 
 const Login: React.FC = () => {
-  const initialValues: MyFormValues = { email: "", password: "" };
-  
+  var initialValues: User = { id:0,email: "", password: "",telefone:"",imagem:"" };
+
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -23,8 +22,14 @@ const Login: React.FC = () => {
               <Formik
                 initialValues={initialValues}
                 onSubmit={(values, actions) => {
-                  console.log({ values, actions });
-                  alert(JSON.stringify(values, null, 2));
+                  // console.log({ values, actions });
+                  // alert(JSON.stringify(values, null, 2));
+                  if(service.validUser(values)){
+                    alert('login e senha correto')
+                  }else{
+                    alert('email ou senha invalido')
+                  }
+
                   actions.setSubmitting(false);
                 }}
               >
