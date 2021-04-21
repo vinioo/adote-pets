@@ -4,3 +4,8 @@
   margin-top: 5.6rem;
   margin-bottom: 4.0rem;
 }
+
+ion-item {
+  --background: transparent;
+  --border-color: transparent;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import MenuItem from "../menu-item";
 
@@ -10,12 +10,42 @@ import FilterIcon from "../../assets/icons/filter.svg";
 import "./Menu.css";
 
 const Menu: React.FC = () => {
+  const [selectedMenuItem, setSelectedMenuItem] = useState('Cachorros');
+
+  const menuItems = [
+    {
+      description: "Cachorros",
+      source: DogIcon,
+    },
+    {
+      description: "Gatos",
+      source: CatIcon,
+    },
+    {
+      description: "Outros",
+      source: MoreIcon,
+    },
+    {
+      description: "Filtros",
+      source: FilterIcon,
+    },
+  ];
+
+  const setActiveItem = (description: string) => {
+    setSelectedMenuItem(description);
+  };
+
   return (
     <div className="menu">
-      <MenuItem description="Cachorros" source={DogIcon} active={true}></MenuItem>
-      <MenuItem description="Gatos" source={CatIcon}></MenuItem>
-      <MenuItem description="Outros" source={MoreIcon}></MenuItem>
-      <MenuItem description="Filtros" source={FilterIcon}></MenuItem>
+      {menuItems.map((item) => (
+        <MenuItem
+          key={item.description}
+          description={item.description}
+          source={item.source}
+          selected={item?.description === selectedMenuItem}
+          onClick={() => setActiveItem(item.description)}
+        ></MenuItem>
+      ))}
     </div>
   );
 };

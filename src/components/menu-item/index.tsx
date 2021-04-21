@@ -1,16 +1,17 @@
 import React from "react";
 
-import './MenuItem.css';
+import "./MenuItem.css";
 
 interface IMenuItemProps {
   description: string;
   source?: string;
-  active?: boolean;
+  selected?: boolean;
+  onClick: () => void;
 }
 
-const MenuItem: React.FC<IMenuItemProps> = ({ source, description, active = false}) => {
+const MenuItem: React.FC<IMenuItemProps> = ({ source, description, selected, onClick }) => {
   return (
-    <div className={`menu-item ${active && 'menu-item--active'}`}>
+    <div onClick={onClick} className={`menu-item ${selected ? "menu-item--selected" : ""}`}>
       <div>
         <img src={source} alt="menu item"></img>
       </div>

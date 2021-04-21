@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: brightness(1);
 }
 
 .menu-item > span {
@@ -19,11 +20,12 @@
   text-align: center;
 }
 
-.menu-item--active > div {
+.menu-item--selected > div {
   background: #1bbcb6;
   box-shadow: 2px 4px 10px #c5c5c5;
 }
 
-.menu-item--active > div img {
+.menu-item--selected > div img {
   filter: brightness(2);
 }
+

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "./Card.css";
+import { NavContext } from "@ionic/react";
 
 interface ICardProps {
   source?: string;
@@ -10,6 +11,7 @@ interface ICardProps {
 }
 
 const Card: React.FC<ICardProps> = ({ nome }) => {
+  const { navigate } = useContext(NavContext);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,12 +31,14 @@ const Card: React.FC<ICardProps> = ({ nome }) => {
     getDogImage();
   }, []);
 
+  const goToPetInfoPage = () => {
+    navigate("/info");
+  };
+
   return (
-    <div className="card" ref={cardRef}>
+    <div className="card" ref={cardRef} onClick={() => goToPetInfoPage()}>
       <div className="card__info">
-        <Link to="/info">
-          <span>{nome}</span>
-        </Link>
+        <span>{nome}</span>
         <small>3 anos</small>
       </div>
     </div>
