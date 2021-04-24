@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 
 import "./RegisterUser.css";
-import { UserService } from "../../service/user.service"
+import  UserService  from "../../service/user.service"
 import { User } from "../../models/user.model"
 
-var MyFormValues = new UserService();
+var service = UserService;
 
 const RegisterUser: React.FC = () => {
   const initialValues: User = {
@@ -40,11 +40,11 @@ const RegisterUser: React.FC = () => {
           <Formik
             initialValues={initialValues}
             onSubmit={(values, action) => {
-              MyFormValues.addUser(values);
+              service.addUser(values);
               action.setSubmitting(false);
-              alert(JSON.stringify(MyFormValues.getUserById(1)))
+              alert(JSON.stringify(service.getUserById(1)))
 
-              console.log(MyFormValues.getUserById(1))
+              console.log(service.getUserById(1))
             }}
           >
             {(formikProps) => (

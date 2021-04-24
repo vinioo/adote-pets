@@ -14,13 +14,13 @@ import { Formik, Form } from "formik";
 
 import "./Register.css";
 import { Pet} from "../../models/pet.model"
-import {PetService} from "../../service/pet.service"
+import PetService from "../../service/pet.service"
  
-var service = new PetService();
+var service =  PetService;
 
 const Register: React.FC = () => {
   const initialValues: Pet = {
-    id: 0,
+    id: '',
     tipoAnimal: "",
     nome: "",
     idade: 0,

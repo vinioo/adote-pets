@@ -1,72 +1,59 @@
 import { User } from "../models/user.model";
+import firebase from "../credencial";
 
-export class UserService {
-  public users: Array<User> = [{
-    id: 1,
-    email: "teste@teste.com",
-    password: "123",
-    telefone: "33445599",
-    imagem: ""
-  } ];
+const firestore = firebase.firestore();
 
-  constructor() {} 
-
-  public getAllUsers(): Array<User> {
-    return this.users;
-  }
-
-  public getUserById(id: number): User | undefined {
-    for (let obj of this.users) {
-      if (obj.id === id) {
-        return obj;
-      }
-    }
+class UserService {
+  
+  public getAllUsers() {
+    return firestore.collection("user").get();
   }
 
 
-  public validUser(user:User): boolean {
-    for (let obj of this.users) {
-      if (obj.email === user.email && obj.password === user.password) {
-        return true;
-      }
-    }
-    return false;
+  public validaUser(email:string,password:string) {
+    return firestore.collection("user")
+    .where("email","==",email)
+    .where("password","==",password).get();
   }
 
+  public getUserById(id: number) {
+    return firestore
+      .collection("user")
+      .doc("id")
+      .get()
+      .then((user) => {
+        if (user.exists) {
+          return {
+            id: user.id,
+            email: user.data()?.email,
+            password: user.data()?.password,
+            telefone: user.data()?.telefone,
+            imagem: user.data()?.imagem,
+          };
+        } else {
+          return {
+            id: null,
+            email: "",
+            password: "",
+            telefone: "",
+            imagem: "",
+          };
+        }
+      });
+  }
 
   public addUser(item: User) {
-    const id: number = this.users.length + 1;
-    item.id = id;
-    this.users.push(item);
+    delete item.id;
+    return firestore.collection('user').add(item);
   }
 
-  public deleteUser(id: number) {
-    let pos = null;
-
-    for (let i = 0; i < this.users.length; i++) {
-      if (id === this.users[i].id) {
-        pos = i;
-        break;
-      }
-    }
-
-    if (pos || pos === 0) {
-      this.users.splice(pos, 1);
-    }
+  public deleteUser(id: string) {
+   return firestore.doc(`user/${id}`).delete()
   }
 
   public editarUser(item: User) {
-    console.log("item", item);
-
-    for (let obj of this.users) {
-      if (item.id === obj.id) {
-        obj.email = item.email;
-        obj.password = item.password;
-        obj.telefone = item.telefone;
-        obj.imagem = item.imagem;
-
-        break;
-      }
-    }
+    return firebase.firestore().collection('user').doc(`user/${item.id}`).update(item)
   }
 }
+
+export default  new UserService()
