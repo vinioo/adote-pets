@@ -8,6 +8,10 @@
     padding: 2.4rem;
 }
 
+.container_main ion-item {
+    margin-bottom: 1.6rem;
+}
+
 .image_upload {
     position: relative;
     border: dashed 2px #777777;
@@ -39,7 +43,7 @@
 
 .image_upload_content .image_upload_subtitle {
     font-family: "Open Sans";
-    margin-top: 0.8rem;
+    margin: 0.8rem 0rem;
 }
 
 .button {

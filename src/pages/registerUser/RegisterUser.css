@@ -8,6 +8,14 @@
     padding: 2.4rem;
 }
 
+.container_main ion-item {
+    margin-bottom: 1.6rem;
+}
+
+ion-item::part(native) {
+    padding-left: 0;
+}
+
 .image_upload {
     border: dashed 2px #777777;
     border-radius: 100%;
@@ -36,7 +44,7 @@
 
 .image_upload_content .image_upload_subtitle {
     font-family: "Open Sans";
-    margin-top: 0.8rem;
+    margin: 0.8rem 0rem;
 }
 
 .button {
@@ -49,4 +57,9 @@
     padding-bottom: 1rem;
     text-align: start;
     margin-top: 5.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.error {
+    color: var(--ion-color-danger-tint);
 }

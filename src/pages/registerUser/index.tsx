@@ -89,8 +89,8 @@ const RegisterUser: React.FC = () => {
                   formik.setFieldValue("email", e.detail.value);
                 }}
               ></IonInput>
-              {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
             </IonItem>
+            {formik.touched.email && formik.errors.email ? <small className="error">{formik.errors.email}</small> : null}
             <IonItem>
               <IonLabel position="floating">Senha</IonLabel>
               <IonInput
@@ -99,8 +99,8 @@ const RegisterUser: React.FC = () => {
                   formik.setFieldValue("password", e.detail.value);
                 }}
               ></IonInput>
-              {formik.touched.password && formik.errors.password ? <div>{formik.errors.password}</div> : null}
             </IonItem>
+            {formik.touched.password && formik.errors.password ? <small className="error">{formik.errors.password}</small> : null}
             <IonItem>
               <IonLabel position="floating">Confirmação de senha</IonLabel>
               <IonInput name="confirmarSenha"></IonInput>
@@ -113,8 +113,8 @@ const RegisterUser: React.FC = () => {
                   formik.setFieldValue("telefone", e.detail.value);
                 }}
               ></IonInput>
-              {formik.touched.telefone && formik.errors.telefone ? <div>{formik.errors.telefone}</div> : null}
             </IonItem>
+            {formik.touched.telefone && formik.errors.telefone ? <small className="error">{formik.errors.telefone}</small> : null}
             <IonButton expand="block" className="button" size="large" type="submit">
               Cadastrar
             </IonButton>
