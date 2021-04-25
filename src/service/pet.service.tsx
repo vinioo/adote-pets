@@ -1,18 +1,18 @@
 import { Pet } from "../models/pet.model";
 import firebase from "../credencial";
 
-const firestore = firebase.firestore();
-
 class PetService {
+  constructor(private firestore = firebase.firestore()) {}
+
   public async getAllPets() {
     const pets: Pet[] = [];
-    (await firestore.collection("pet").get()).forEach((pet) => pets.push(pet.data() as Pet));
+    (await this.firestore.collection("pet").get()).forEach((pet) => pets.push(pet.data() as Pet));
     console.log(pets);
     return pets;
   }
 
   public getPetById(id: number) {
-    return firestore
+    return this.firestore
       .collection("pet")
       .doc("id")
       .get()
@@ -39,15 +39,15 @@ class PetService {
 
   public addPet(item: Pet) {
     delete item.id;
-    return firestore.collection("pet").add(item);
+    return this.firestore.collection("pet").add(item);
   }
 
   public deletePet(id: number) {
-    return firestore.doc(`pet/${id}`).delete();
+    return this.firestore.doc(`pet/${id}`).delete();
   }
 
   public editarPet(item: Pet) {
-    return firebase.firestore().collection("pet").doc(`pet/${item.id}`).update(item);
+    return this.firestore.collection("pet").doc(`pet/${item.id}`).update(item);
   }
 }
 

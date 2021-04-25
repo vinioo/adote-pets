@@ -1,23 +1,27 @@
 import { User } from "../models/user.model";
 import firebase from "../credencial";
 
-const firestore = firebase.firestore();
-
 class UserService {
-  
+  constructor(private firestore = firebase.firestore()) {}
+
   public getAllUsers() {
-    return firestore.collection("user").get();
+    return this.firestore.collection("user").get();
   }
 
+  public async login(email: string, password: string) {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  }
 
-  public validaUser(email:string,password:string) {
-    return firestore.collection("user")
-    .where("email","==",email)
-    .where("password","==",password).get();
+  public async registerUser(email: string, password: string) {
+    return firebase.auth().createUserWithEmailAndPassword(email, password);
+  }
+
+  public addUser(item: User) {
+    return this.firestore.collection("user").add(item);
   }
 
   public getUserById(id: number) {
-    return firestore
+    return this.firestore
       .collection("user")
       .doc("id")
       .get()
@@ -42,18 +46,13 @@ class UserService {
       });
   }
 
-  public addUser(item: User) {
-    delete item.id;
-    return firestore.collection('user').add(item);
-  }
-
   public deleteUser(id: string) {
-   return firestore.doc(`user/${id}`).delete()
+    return this.firestore.doc(`user/${id}`).delete();
   }
 
   public editarUser(item: User) {
-    return firebase.firestore().collection('user').doc(`user/${item.id}`).update(item)
+    return this.firestore.collection("user").doc(`user/${item.uid}`).update(item);
   }
 }
 
-export default  new UserService()
+export default new UserService();

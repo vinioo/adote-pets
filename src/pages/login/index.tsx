@@ -1,12 +1,4 @@
-import {
-  IonContent,
-  IonPage,
-  IonButton,
-  IonInput,
-  IonItem,
-  IonLabel,
-  NavContext,
-} from "@ionic/react";
+import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, NavContext } from "@ionic/react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,7 +11,7 @@ var service = UserService;
 
 const Login: React.FC = () => {
   var initialValues: User = {
-    id: 0,
+    uid: "",
     email: "",
     password: "",
     telefone: "",
@@ -36,19 +28,15 @@ const Login: React.FC = () => {
             <div>
               <Formik
                 initialValues={initialValues}
-                onSubmit={(values, actions) => {
-                  // console.log({ values, actions });
-                  // alert(JSON.stringify(values, null, 2));
+                onSubmit={async (values, actions) => {
+                  try {
+                    const userCredential = await service.login(values.email, values.password);
+                    console.log(userCredential.user);
 
-                  service
-                    .validaUser(values.email, values.password)
-                    .then((user) => {
-                      if (user.empty) {
-                        alert('Email ou senha incorreto')
-                      } else {
-                        navigate("/main");
-                      }
-                    });
+                    navigate("/main");
+                  } catch (err) {
+                    console.error(err);
+                  }
                   actions.setSubmitting(false);
                 }}
               >
@@ -58,9 +46,7 @@ const Login: React.FC = () => {
                       <IonLabel position="floating">Email</IonLabel>
                       <IonInput
                         name="email"
-                        onIonChange={(e) =>
-                          formikProps.setFieldValue("email", e.detail.value)
-                        }
+                        onIonChange={(e) => formikProps.setFieldValue("email", e.detail.value)}
                       ></IonInput>
                     </IonItem>
                     <IonItem>
@@ -68,9 +54,7 @@ const Login: React.FC = () => {
                       <IonInput
                         name="password"
                         type="password"
-                        onIonChange={(e) =>
-                          formikProps.setFieldValue("password", e.detail.value)
-                        }
+                        onIonChange={(e) => formikProps.setFieldValue("password", e.detail.value)}
                       ></IonInput>
                     </IonItem>
                     <small>Esqueci a senha</small>
@@ -82,8 +66,7 @@ const Login: React.FC = () => {
               </Formik>
             </div>
             <small>
-              Não possui conta? <Link to="/registerUser">Cadastre-se</Link>{" "}
-              agora!
+              Não possui conta? <Link to="/registerUser">Cadastre-se</Link> agora!
             </small>
           </div>
         </div>
