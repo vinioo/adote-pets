@@ -11,7 +11,7 @@ const PetsList: React.FC = () => {
       <IonContent fullscreen>
         <div className="container_main">
             <Link to="/main">   <IonIcon icon={arrowBackOutline}></IonIcon></Link>
-            <h1 className="title">Animais cadastrados</h1>
+            <h1 className="_title">Animais cadastrados</h1>
 
           <IonButton expand="block" routerLink="/register">
             Adicionar novo animal

@@ -15,6 +15,7 @@ import { Formik, Form } from "formik";
 import "./Register.css";
 import { Pet} from "../../models/pet.model"
 import PetService from "../../service/pet.service"
+import Back from "../../components/back";
  
 var service =  PetService;
 
@@ -36,7 +37,7 @@ const Register: React.FC = () => {
         <div className="container_main">
           <Link to="/main">
             {" "}
-            <IonIcon icon={arrowBackOutline}></IonIcon>
+            <Back></Back>
           </Link>
           <Formik
             initialValues={initialValues}

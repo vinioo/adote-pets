@@ -24,6 +24,10 @@ ion-list {
   --background: transparent;
 }
 
+ion-item {
+  --background: transparent;
+}
+
 h1,
 h2,
 h3,

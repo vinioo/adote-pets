@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import "./RegisterUser.css";
 import UserService from "../../service/user.service";
 import { User } from "../../models/user.model";
+import Back from "../../components/back";
 
 var service = UserService;
 
@@ -47,7 +48,7 @@ const RegisterUser: React.FC = () => {
         <div className="container_main">
           <Link to="/login">
             {" "}
-            <IonIcon icon={arrowBackOutline}></IonIcon>
+            <Back></Back>
           </Link>
           <h1 className="title">Registrar</h1>
           <form onSubmit={formik.handleSubmit}>

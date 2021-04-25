@@ -5,7 +5,7 @@
   margin-bottom: 4.0rem;
 }
 
-ion-item {
+.menu > ion-item {
   --background: transparent;
   --border-color: transparent;
 }

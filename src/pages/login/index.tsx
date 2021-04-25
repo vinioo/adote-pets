@@ -65,7 +65,7 @@ const Login: React.FC = () => {
                 )}
               </Formik>
             </div>
-            <small>
+            <small className="login__register">
               Não possui conta? <Link to="/registerUser">Cadastre-se</Link> agora!
             </small>
           </div>
