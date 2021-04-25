@@ -6,30 +6,23 @@ import "./Card.css";
 import { NavContext } from "@ionic/react";
 
 interface ICardProps {
-  source?: string;
-  nome?: string;
+  source: string;
+  name: string;
+  age: string;
 }
 
-const Card: React.FC<ICardProps> = ({ nome }) => {
+const Card: React.FC<ICardProps> = ({ name, age, source }) => {
   const { navigate } = useContext(NavContext);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const getDogImage = async () => {
-      const {
-        data: { message: dogImage },
-      } = await axios.get("https://dog.ceo/api/breeds/image/random");
-
-      if (cardRef.current != null) {
-        const gradient = "linear-gradient(186.55deg, rgba(232, 232, 232, 0) 5.15%, #333333 119.04%)";
-        cardRef.current.style.background = `${gradient}, url(${dogImage}) no-repeat`;
-        cardRef.current.style.backgroundSize = "cover";
-        cardRef.current.style.backgroundPosition = "center";
-      }
-    };
-
-    getDogImage();
-  }, []);
+    if (cardRef.current != null) {
+      const gradient = "linear-gradient(186.55deg, rgba(232, 232, 232, 0) 5.15%, #333333 119.04%)";
+      cardRef.current.style.background = `${gradient}, url(${source}) no-repeat`;
+      cardRef.current.style.backgroundSize = "cover";
+      cardRef.current.style.backgroundPosition = "center";
+    }
+  }, [source]);
 
   const goToPetInfoPage = () => {
     navigate("/info");
@@ -38,8 +31,8 @@ const Card: React.FC<ICardProps> = ({ nome }) => {
   return (
     <div className="card" ref={cardRef} onClick={() => goToPetInfoPage()}>
       <div className="card__info">
-        <span>{nome}</span>
-        <small>3 anos</small>
+        <span>{name}</span>
+        <small>{age} anos</small>
       </div>
     </div>
   );

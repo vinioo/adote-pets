@@ -3,10 +3,12 @@ import firebase from "../credencial";
 
 const firestore = firebase.firestore();
 
- class PetService {
- 
-  public getAllPets() {
-    return firestore.collection('pet').get();
+class PetService {
+  public async getAllPets() {
+    const pets: Pet[] = [];
+    (await firestore.collection("pet").get()).forEach((pet) => pets.push(pet.data() as Pet));
+    console.log(pets);
+    return pets;
   }
 
   public getPetById(id: number) {
@@ -37,15 +39,15 @@ const firestore = firebase.firestore();
 
   public addPet(item: Pet) {
     delete item.id;
-    return firestore.collection('pet').add(item);
+    return firestore.collection("pet").add(item);
   }
 
   public deletePet(id: number) {
-    return firestore.doc(`pet/${id}`).delete()
+    return firestore.doc(`pet/${id}`).delete();
   }
 
   public editarPet(item: Pet) {
-    return firebase.firestore().collection('pet').doc(`pet/${item.id}`).update(item)
+    return firebase.firestore().collection("pet").doc(`pet/${item.id}`).update(item);
   }
 }
 

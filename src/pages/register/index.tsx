@@ -23,7 +23,7 @@ const Register: React.FC = () => {
     id: '',
     tipoAnimal: "",
     nome: "",
-    idade: 0,
+    idade: '0',
     imagem: "",
   };
 
