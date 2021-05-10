@@ -2,10 +2,11 @@ import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, NavContext
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Formik, Form } from "formik";
+import { Formik, Form, FormikProps } from "formik";
 import UserService from "../../service/user.service";
 import { User } from "../../models/user.model";
 import "./Login.css";
+
 
 var service = UserService;
 
@@ -40,7 +41,7 @@ const Login: React.FC = () => {
                   actions.setSubmitting(false);
                 }}
               >
-                {(formikProps) => (
+                {(formikProps:FormikProps<User>) => (
                   <Form>
                     <IonItem>
                       <IonLabel position="floating">Email</IonLabel>

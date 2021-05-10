@@ -25,7 +25,7 @@ class UserService {
       .collection("user")
       .doc("id")
       .get()
-      .then((user) => {
+      .then((user:any) => {
         if (user.exists) {
           return {
             id: user.id,

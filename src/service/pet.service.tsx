@@ -6,7 +6,7 @@ class PetService {
 
   public async getAllPets() {
     const pets: Pet[] = [];
-    (await this.firestore.collection("pet").get()).forEach((pet) => pets.push(pet.data() as Pet));
+    (await this.firestore.collection("pet").get()).forEach((pet:any) => pets.push(pet.data() as Pet));
     console.log(pets);
     return pets;
   }
@@ -16,7 +16,7 @@ class PetService {
       .collection("pet")
       .doc("id")
       .get()
-      .then((user) => {
+      .then((user:any) => {
         if (user.exists) {
           return {
             id: user.id,
