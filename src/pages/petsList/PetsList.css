@@ -12,3 +12,21 @@
 .button {
     height: 56px;
 }
+
+.petsList_img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.petsList_list {
+    padding: 16px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.petsList_list div {
+    display: flex;
+    align-items: center;
+
+}

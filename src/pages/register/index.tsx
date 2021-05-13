@@ -10,7 +10,7 @@ import {
 } from "@ionic/react";
 import { Link } from "react-router-dom";
 import { add, arrowBackOutline } from "ionicons/icons";
-import { Formik, Form } from "formik";
+import { Formik, Form, FormikProps } from "formik";
 
 import "./Register.css";
 import { Pet} from "../../models/pet.model"
@@ -49,7 +49,7 @@ const Register: React.FC = () => {
               console.log(service.getPetById(1))
             }}
           >
-            {(formikProps) => (
+            {(formikProps:FormikProps<Pet>) => (
               <Form>
                 <div className="image_upload_content">
                   <div className="image_upload" style={style_Image_upload}>
