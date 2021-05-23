@@ -1,5 +1,4 @@
-import { IonIcon, IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel } from "@ionic/react";
-import { arrowBackOutline, add } from "ionicons/icons";
+import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, NavContext } from "@ionic/react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -8,10 +7,14 @@ import "./RegisterUser.css";
 import UserService from "../../service/user.service";
 import { User } from "../../models/user.model";
 import Back from "../../components/back";
+import ImageUpload from "../../components/image-upload";
+import { useContext } from "react";
 
 var service = UserService;
 
 const RegisterUser: React.FC = () => {
+const { navigate } = useContext(NavContext);
+
   const formik = useFormik<Omit<User, "uid">>({
     initialValues: {
       email: "",
@@ -27,20 +30,17 @@ const RegisterUser: React.FC = () => {
     }),
 
     onSubmit: async (values) => {
-      console.log("submite");
       try {
         const userCredential = await service.registerUser(values.email, values.password);
         if (userCredential.user) {
           service.addUser({ ...values, uid: userCredential.user.uid });
         }
+        navigate('/main');
       } catch (err) {
         console.log("error tring to create user", err);
       }
     },
   });
-
-  var style_Image_upload = {};
-  var style_Icon_upload = {};
 
   return (
     <IonPage>
@@ -52,35 +52,7 @@ const RegisterUser: React.FC = () => {
           </Link>
           <h1 className="title">Registrar</h1>
           <form onSubmit={formik.handleSubmit}>
-            <div className="image_upload_content">
-              <div className="image_upload" style={style_Image_upload}>
-                <IonIcon icon={add} className="icon" style={style_Icon_upload}></IonIcon>
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="upload_file"
-                  name="imagem"
-                  onChange={(e) => {
-                    const file = e.target.files ? e.target.files[0] : new Blob();
-                    const reader = new FileReader();
-                    reader.onload = (ee) => {
-                      formik.setFieldValue("imagem", ee.target?.result?.toString());
-                      style_Image_upload = {
-                        backgroundImage: `url('${ee.target?.result?.toString()}')`,
-                        backgroundZize: "1%",
-                      };
-
-                      style_Icon_upload = {
-                        display: "none",
-                      };
-                    };
-
-                    reader.readAsDataURL(file);
-                  }}
-                ></input>
-              </div>
-              <small className="image_upload_subtitle">adicionar uma imagem</small>
-            </div>
+            <ImageUpload onImageUploaded={(img) => formik.setFieldValue("image", img)}></ImageUpload>
             <IonItem>
               <IonLabel position="floating">Email</IonLabel>
               <IonInput
@@ -90,20 +62,25 @@ const RegisterUser: React.FC = () => {
                 }}
               ></IonInput>
             </IonItem>
-            {formik.touched.email && formik.errors.email ? <small className="error">{formik.errors.email}</small> : null}
+            {formik.touched.email && formik.errors.email ? (
+              <small className="error">{formik.errors.email}</small>
+            ) : null}
             <IonItem>
               <IonLabel position="floating">Senha</IonLabel>
               <IonInput
                 name="password"
+                type="password"
                 onIonChange={(e) => {
                   formik.setFieldValue("password", e.detail.value);
                 }}
               ></IonInput>
             </IonItem>
-            {formik.touched.password && formik.errors.password ? <small className="error">{formik.errors.password}</small> : null}
+            {formik.touched.password && formik.errors.password ? (
+              <small className="error">{formik.errors.password}</small>
+            ) : null}
             <IonItem>
               <IonLabel position="floating">Confirmação de senha</IonLabel>
-              <IonInput name="confirmarSenha"></IonInput>
+              <IonInput name="confirmarSenha" type="password"></IonInput>
             </IonItem>
             <IonItem>
               <IonLabel position="floating">Número de telefone</IonLabel>
@@ -114,7 +91,9 @@ const RegisterUser: React.FC = () => {
                 }}
               ></IonInput>
             </IonItem>
-            {formik.touched.telefone && formik.errors.telefone ? <small className="error">{formik.errors.telefone}</small> : null}
+            {formik.touched.telefone && formik.errors.telefone ? (
+              <small className="error">{formik.errors.telefone}</small>
+            ) : null}
             <IonButton expand="block" className="button" size="large" type="submit">
               Cadastrar
             </IonButton>

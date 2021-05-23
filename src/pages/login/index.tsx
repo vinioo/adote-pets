@@ -6,6 +6,7 @@ import { Formik, Form, FormikProps } from "formik";
 import UserService from "../../service/user.service";
 import { User } from "../../models/user.model";
 import "./Login.css";
+import { useAuthListener } from "../../hooks/auth";
 
 
 var service = UserService;
@@ -31,9 +32,8 @@ const Login: React.FC = () => {
                 initialValues={initialValues}
                 onSubmit={async (values, actions) => {
                   try {
-                    const userCredential = await service.login(values.email, values.password);
-                    console.log(userCredential.user);
-
+                    await service.login(values.email, values.password);
+                    
                     navigate("/main");
                   } catch (err) {
                     console.error(err);

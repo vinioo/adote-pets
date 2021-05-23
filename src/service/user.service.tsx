@@ -16,6 +16,10 @@ class UserService {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
 
+  public async signOut() {
+    return firebase.auth().signOut();
+  }
+
   public addUser(item: User) {
     return this.firestore.collection("user").add(item);
   }

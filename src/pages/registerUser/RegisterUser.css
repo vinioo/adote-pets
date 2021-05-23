@@ -16,35 +16,10 @@ ion-item::part(native) {
     padding-left: 0;
 }
 
-.image_upload {
-    border: dashed 2px #777777;
-    border-radius: 100%;
-    width: 138px;
-    height: 138px;
-    background-color: #F0F3F3;
-}
-
 .icon {
     width: 50%;
     height: 50%;
     color: #FFF;
-}
-
-.image_upload,
-.image_upload_content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.image_upload_content {
-    width: 100%;
-}
-
-.image_upload_content .image_upload_subtitle {
-    font-family: "Open Sans";
-    margin: 0.8rem 0rem;
 }
 
 .button {
