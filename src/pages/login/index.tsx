@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, NavContext } from "@ionic/react";
+import { IonContent, IonPage, IonButton, IonInput, IonItem, IonLabel, NavContext, useIonLoading } from "@ionic/react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,6 +19,7 @@ const Login: React.FC = () => {
     telefone: "",
     imagem: "",
   };
+  const [present, dismiss] = useIonLoading();
   const { navigate } = useContext(NavContext);
 
   return (
@@ -32,11 +33,14 @@ const Login: React.FC = () => {
                 initialValues={initialValues}
                 onSubmit={async (values, actions) => {
                   try {
+                    present();
                     await service.login(values.email, values.password);
                     
                     navigate("/main");
                   } catch (err) {
                     console.error(err);
+                  } finally {
+                    dismiss();
                   }
                   actions.setSubmitting(false);
                 }}
